@@ -1,0 +1,126 @@
+# Importamos las bibliotecas necesarias
+import json
+import tkinter as tk
+!pip install customtkinter
+import customtkinter
+from customtkinter import *
+from tkinter import *
+from tkinter.ttk import *
+!pip install TkinterMapView
+
+# import TkinterMapView
+# from TkinterMapView import MapView
+
+from customtkinter.windows.widgets import font
+
+# Creamos la clase App para representar la aplicación
+class App(Tk):
+    def __init__(self):
+        super().__init__()
+
+        # Configuramos la ventana principal (con titulo)
+        self.title("Comida viajera")
+        self.geometry("1024x768")
+        self.config(background="#EEEEEE")
+
+        # Definimos la fuente
+        self.title.header_font = tk.Font(family="Roboto Condensed", size=18, weight="bold")
+        self.text_font = tk.Font(family="Open Sans", size=12)
+
+        # Agregamos texto a la ventana principal
+        self.text_label = tk.Label(self, text="¡Explora las cocinas más deliciosas del mundo!", font=self.text_font, background="#EEEEEE")
+        self.text_label.pack(side="top", fill="x")
+
+        # Creamos el mapa
+        self.map_view = MapView(self)
+        self.map_view.pack(side="top", fill="both", expand=True)
+
+        # Creamos la lista de destinos culinarios
+        self.lista_de_destinos = Listbox(self, height=20)
+        self.lista_de_destinos.pack(side="left", fill="both", expand=True)
+
+        # Creamos el botón para agregar un destino culinario
+        self.add_destination_button = Button(self, text="Add Destination", command=self.add_destination)
+        self.add_destination_button.pack(side="bottom", fill="x")
+
+        # Cargamos los datos desde el archivo JSON
+        with open("data.json", "r") as f:
+            self.data = json.load(f)
+
+        # Actualizamos la lista de destinos culinarios
+        self.update_lista_de_destinos()
+
+    # Método para agregar un destino culinario
+    def add_destination(self):
+        # Solicitamos al usuario los datos del destino culinario
+        nombre = input("Nombre del destino culinario: ")
+        tipo_de_cocina = input("Tipo de cocina: ")
+        ingredientes = input("Ingredientes: ")
+        precio_minimo = float(input("Precio mínimo: "))
+        precio_maximo = float(input("Precio máximo: "))
+        popularidad = float(input("Popularidad: "))
+        disponibilidad = input("Disponibilidad: ")
+        id_ubicacion = int(input("ID de la ubicación: "))
+        imagen = input("URL de la imagen: ")
+
+        # Creamos un nuevo objeto destino culinario
+        destination = {
+            "id": len(self.data["destinations"]) + 1,
+            "nombre": nombre,
+            "tipo_de_cocina": tipo_de_cocina,
+            "ingredientes": ingredientes,
+            "precio_minimo": precio_minimo,
+            "precio_maximo": precio_maximo,
+            "popularidad": popularidad,
+            "disponibilidad": disponibilidad,
+            "id_ubicacion": id_ubicacion,
+            "imagen": imagen,
+        }
+
+        # Agregamos el destino culinario a la lista
+        self.data["destinations"].append(destination)
+
+        # Actualizamos la lista de destinos culinarios
+        self.update_lista_de_destinos()
+
+    # Método para actualizar la lista de destinos culinarios
+    def update_lista_de_destinos(self):
+        # Limpiamos la lista
+        self.lista_de_destinos.delete(0, END)
+
+        # Agregamos los destinos culinarios a la lista
+        for destination in self.data["destinations"]:
+            self.lista_de_destinos.insert(END, destination["nombre"])
+
+     # implementamos una función de publicación de reseñas 
+    def post_reseña(nombre_usuario, reseña):
+          reseña.append({
+            "nombre_usuario": nombre_usuario,
+            "reseña": reseña,
+          })
+          return reseña
+
+      # podemos agregar un botón a la interfaz gráfica para que los usuarios puedan publicar reseñas
+      # Agregamos un botón a la ventana principal para publicar una reseña
+    post_reseña_button = tk.Button(text="Post Reseña", font="Open Sans", background="#EEEEEE")
+    post_reseña_button.pack(side="bottom", fill="x")
+
+      # Definimos la acción del botón para publicar una reseña
+    def post_reseña():
+      # Obtenemos el nombre del usuario y la reseña
+        nombre_usuario = input("Nombre de usuario: ")
+        reseña = input("Reseña: ")
+
+      # Actualizamos la lista de reseñas en la ventana principal
+        for reseña in reseña:
+          text_label = tk.Label(text=reseña["review"], font="Open Sans", background="#EEEEEE")
+          text_label.pack(side="top", fill="x")
+
+      # Establezcemos el comando del botón para publicar una reseña
+    post_reseña_button.config(command=post_reseña)
+
+# Creamos una instancia de la clase App
+app = App()
+
+# Iniciamos la aplicación
+app.mainloop()
