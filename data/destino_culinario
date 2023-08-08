@@ -1,0 +1,62 @@
+[
+    {
+    "id": 101,
+    "nombre":"Charcaz Vacca",
+    "tipo_cocina":"Tenedor Libre Parrillada",
+    "ingredientes":["carne,pescados,etc"],
+    "precio_minimo":2500,
+    "precio_maximo":300000,
+    "popularidad":9,
+    "disponibilidad":3,
+    "id_ubicacion":1,
+    "imagen":"ubicacion/imagen"
+    },
+    {
+    "id": 102,
+    "nombre":"Trattoria Mamma Mia",
+    "tipo_cocina":"Restaurante Italiano",
+    "ingredientes":["pastas,salsas"],
+    "precio_minimo":2000,
+    "precio_maximo":350000,
+    "popularidad":8,
+    "disponibilidad":2,
+    "id_ubicacion":2,
+    "imagen":"ubicacion/imagen"
+    },
+    {
+    "id": 103,
+    "nombre":"Tantra Restaurante Vegano",
+    "tipo_cocina":"comida vegana",
+    "ingredientes":["elaboracion con vegetales - frutas"],
+    "precio_minimo":1000,
+    "precio_maximo":200000,
+    "popularidad":9,
+    "disponibilidad":3,
+    "id_ubicacion":3,
+    "imagen":"ubicacion/imagen"
+    },
+    {
+    "id":103, 
+    "nombre":"Tantra Restaurante Vegano",
+    "tipo_cocina":"comida vegana",
+    "ingredientes":["elaboracion con vegetales - frutas"],
+    "precio_minimo":1000,
+    "precio_maximo":200000,
+    "popularidad":9,
+    "disponibilidad":3,
+    "id_ubicacion":3,
+    "imagen":"ubicacion/imagen"
+    },
+    {
+    "id": 104,
+    "nombre":"Restaurant Adelita",
+    "tipo_cocina":"comida tradicional salteña",
+    "ingredientes":["regional: empanadas, tamales, humitas"],
+    "precio_minimo":600,
+    "precio_maximo":300000,
+    "popularidad":10,
+    "disponibilidad":1,
+    "id_ubicacion":4,
+    "imagen":"ubicacion/imagen"
+    }
+]
