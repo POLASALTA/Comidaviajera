@@ -1,18 +1,22 @@
 [
     {"id": 101,
     "direccion": "Virgen del Valle esquina,, Av. San Martín, A4401 Vaqueros-Salta",
-    "coordenadas":[ -24.6962389,-65.412834,17]
+    "coordenadas":[ -24.6962389,-65.412834,17],
+    "imagen": "charcaz.jpeg" 
     },
     {"id": 102,
     "direccion": "Pje. Zorrilla 1, A4400 Salta",
-    "coordenadas":[-24.7883297,-65.407362,17]
+    "coordenadas":[-24.7883297,-65.407362,17],
+    "imagen": "mamma.jpeg"
     },
     {"id": 103,
     "direccion":"Urquiza 427, A4400 Salta",
-    "coordenadas":[-24.7926244,-65.4114187,17]
+    "coordenadas":[-24.7926244,-65.4114187,17],
+    "imagen": "tantra.jpg"
     },
     {"id": 104,
     "direccion":"Río Negro, A4412 Salta",
-    "coordenadas":[-24.8476031,-65.4603396,14]
+    "coordenadas":[-24.8476031,-65.4603396,14],
+    "imagen": "adelita.jpg"
     }
 ]
